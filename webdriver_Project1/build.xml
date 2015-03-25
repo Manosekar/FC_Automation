@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+
+<project basedir="." default="build" name="webdriver_Project1">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../Downloads/eclipse 2 10.52.17 AM"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    </path>
+    <path id="webdriver_Project1.classpath">
+        <pathelement location="bin"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="../../../Documents/Automation/libs/apache-mime4j-0.6.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/bsh-1.3.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/cglib-nodep-2.1_3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-codec-1.9.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-collections-3.2.1.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-exec-1.1.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-io-2.4.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-jxpath-1.3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-lang3-3.3.2.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/commons-logging-1.1.3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/cssparser-0.9.14.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/guava-15.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/hamcrest-core-1.3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/hamcrest-library-1.3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/htmlunit-2.15.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/htmlunit-core-js-2.15.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/httpclient-4.3.4.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/httpcore-4.3.2.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/httpmime-4.3.4.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/ini4j-0.5.2.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/jcommander-1.29.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/jetty-websocket-8.1.8.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/jna-3.4.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/jna-platform-3.4.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/json-20080701.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/junit-dep-4.11.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/nekohtml-1.9.21.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/netty-3.5.7.Final.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/operadriver-1.5.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/phantomjsdriver-1.1.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/protobuf-java-2.4.1.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/sac-1.3.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/serializer-2.7.1.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/testng-6.8.5.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/xalan-2.7.1.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/xercesImpl-2.11.0.jar"/>
+        <pathelement location="../../../Documents/Automation/libs/xml-apis-1.4.01.jar"/>
+        <pathelement location="../../../Documents/Automation/selenium-java-2.43.1-srcs.jar"/>
+        <pathelement location="../../../Documents/Automation/selenium-java-2.43.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="HttpsTesting">
+        <java classname="webdriver_Project1.HttpsTesting" failonerror="true" fork="yes">
+            <classpath refid="webdriver_Project1.classpath"/>
+        </java>
+    </target>
+    <target name="login_test">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.login_test" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="ParameterizedTestcase (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.ParameterizedTestcase" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="ParameterizedTestcase">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.Parameterizedtestcase" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="Search">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.Search" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="test (4)">
+        <java classname="webdriver_Project1.test" failonerror="true" fork="yes">
+            <classpath refid="webdriver_Project1.classpath"/>
+        </java>
+    </target>
+    <target name="test (5)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.test" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="testsuite">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="webdriver_Project1.TestSuite" todir="${junit.output.dir}"/>
+            <classpath refid="webdriver_Project1.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
