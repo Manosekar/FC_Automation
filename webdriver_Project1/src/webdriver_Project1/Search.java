@@ -52,6 +52,8 @@ WebElement element= driver.findElement(By.xpath(".//*[@id='part']"));
      driver.findElement(By.id("anchors-number-industrial-supplies"));
      
      System.out.println("Industrial supplies Anchor is clicked as expected");
+     
+     //lite version-button click
        
      
      driver.findElement(By.linkText("Switch to Lite Version")).click();
